@@ -44,31 +44,33 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  for(int i = 0; i < 9; i++ ){
-    int fila[10] = {0};
-    for(int j = 0 ; j <9;j++){
-      if(fila[n->sudo[i][j]]) return 0;
-      else if(fila[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0) fila[n->sudo[i][j]] = 1;
-    }
+  
+
+for(int j = 0; j < 9; j++ ){
+  int validarFil[10] = {0};
+  for(int k = 0 ; k < 9; k++){
+    if(validarFil[n->sudo[j][k]]) return 0;
+    else if(validarFil[n->sudo[j][k]] == 0 && n->sudo[j][k] != 0) validarFil[n->sudo[j][k]] = 1;
   }
-  for(int m = 0; m < 9 ; m++ ){
-    int columna[10] = {0};
-    for(int o = 0; o < 9; o++){
-      if(columna[n->sudo[m][o]] != 0) return 0;
-      else if(columna[n->sudo[m][o]] == 0 && n->sudo[m][o] != 0) columna[n->sudo[m][o]] = 1;
-    }
+}
+for(int x = 0; x < 9; x++ ){
+  int validarCol[10] = {0};
+  for(int z = 0; z < 9; z++){
+    if(validarCol[n->sudo[x][z]] != 0) return 0;
+    else if(validarCol[n->sudo[x][z]] == 0 && n->sudo[x][z] != 0) validarCol[n->sudo[x][z]] = 1;
   }
-    for(int i = 0; i < 9; i++ ){
-    int matris[10] = {0};
-    int k = i;
-    for(int x = 0; x < 9; x++){
-      int l= 3 *(k / 3) + (x / 3);
-      int j= 3 *(k % 3) + (x % 3);
-      if(matris[n->sudo[l][l]] != 0) return 0;
-      else if(matris[n->sudo[l][j]] == 0 && n->sudo[l][j] != 0) matris[n->sudo[l][j]] = 1;
-    }
-  }
-  return 1;
+}
+for(int a = 0; a < 9 ; a++ ){
+  int validarMat[10] = {0};
+  int k = a , p;
+   for( p = 0 ; p < 9 ; p++){
+     int i=3*(k/3) + (p/3) ;
+     int j=3*(k%3) + (p%3) ;
+     if(validarMat[n->sudo[i][i]] != 0) return 0;
+     else if(validarMat[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0) validarMat[n->sudo[i][j]] = 1;
+   }
+}
+    return 1;
 }
 
 List* get_adj_nodes(Node* n){
