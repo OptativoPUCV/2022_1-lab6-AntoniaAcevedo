@@ -44,7 +44,7 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  for(int i = 0; i < 9; i++ ){
+  /*for(int i = 0; i < 9; i++ ){
     int matris[10] = {0};
     int k = i;
     for(int x = 0; x < 9; x++){
@@ -67,7 +67,7 @@ int is_valid(Node* n){
       if(columna[n->sudo[m][o]] == 0 && n->sudo[m][o] != 0) columna[n->sudo[m][o]] = 1;
       else if(columna[n->sudo[m][o]] != 0) return 0;
     }
-  }
+  }*/
   return 1;
 }
 
