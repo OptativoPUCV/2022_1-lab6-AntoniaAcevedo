@@ -94,19 +94,24 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-    return 0;
+  for(int i = 0; i < 9; i++ ){
+    for (int j = 0; j < 9; j++){
+      if(n->sudo[i][j] == 0){
+        return 0;
+      }
+    }
+  }
+  return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
   Stack* stack = createStack();
   push(stack, initial);
-  while (is_empty(stack) == 0)
-  {
+  while (is_empty(stack) == 0){
     Node* nodo1 = top(stack);
     pop(stack);
     if (is_final(nodo1) == 1) return nodo1;
-    else
-    {
+    else{
       List* nodos = get_adj_nodes(nodo1);
       Node* nodoL = first(nodos);
       while (nodoL != NULL){
