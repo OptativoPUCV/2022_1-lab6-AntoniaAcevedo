@@ -15,3 +15,9 @@ sudoku.c:67:24: error: ‘l’ may be used uninitialized in this function [-Werr
 cc1: all warnings being treated as errors
 Compilation failed
 3dd6995
+Sun May 15 03:24:21 UTC 2022: 
+ sudoku.c | 36 ++++++++++++++++--------------------
+ 1 file changed, 16 insertions(+), 20 deletions(-)
+ tests:  0|5
+total_score: 0/70
+58d9322
